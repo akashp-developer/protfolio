@@ -13,6 +13,7 @@ export function Process() {
         {stages.map(({ title }, index) => (
           <button
             key={title}
+            aria-label={title}
             aria-pressed={active === index}
             aria-controls="process-description"
             onClick={() => setActive(index)}
@@ -21,6 +22,7 @@ export function Process() {
               {String(index + 1).padStart(2, "0")}
             </span>
             {title}
+            <span className="stage-description">{stages[index].description}</span>
           </button>
         ))}
       </div>

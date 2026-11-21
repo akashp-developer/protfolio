@@ -7,8 +7,8 @@ import { motion, useReducedMotion } from "motion/react";
 import { contactSchema, type ContactFields } from "@/lib/contact-schema";
 
 type Feedback = { kind: "success" | "error"; message: string };
-const labels = { name: "Name", email: "Email address", subject: "Subject" } as const;
-const limits = { name: 100, email: 254, subject: 120 };
+const labels = { name: "Name", email: "Email address" } as const;
+const limits = { name: 100, email: 254 };
 
 export function ContactForm({ enabled }: { enabled: boolean }) {
   const formId = useId();
@@ -21,7 +21,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
     formState: { errors, isSubmitting },
   } = useForm<ContactFields>({
     resolver: zodResolver(contactSchema),
-    defaultValues: { name: "", email: "", subject: "", message: "", website: "" },
+    defaultValues: { name: "", email: "", phone: "", subject: "", message: "", website: "" },
   });
 
   async function submit(data: ContactFields) {
@@ -67,7 +67,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
         </p>
       )}
       <div className="form-grid">
-        {(Object.keys(labels) as (keyof typeof labels)[]).map((name) => (
+        {(["name", "email"] as const).map((name) => (
           <div className={`field field-${name}`} key={name}>
             <label htmlFor={`${formId}-${name}`}>{labels[name]}</label>
             <input
@@ -76,7 +76,7 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
               required
               type={name === "email" ? "email" : "text"}
               maxLength={limits[name]}
-              autoComplete={name === "subject" ? "off" : name}
+              autoComplete={name}
               aria-invalid={Boolean(errors[name])}
               aria-describedby={errors[name] ? `${formId}-${name}-error` : undefined}
             />
@@ -87,6 +87,44 @@ export function ContactForm({ enabled }: { enabled: boolean }) {
             )}
           </div>
         ))}
+        <div className="field field-phone">
+          <label htmlFor={`${formId}-phone`}>Phone (optional)</label>
+          <input
+            {...register("phone")}
+            id={`${formId}-phone`}
+            type="tel"
+            autoComplete="tel"
+            maxLength={40}
+            aria-invalid={Boolean(errors.phone)}
+            aria-describedby={errors.phone ? `${formId}-phone-error` : undefined}
+          />
+          {errors.phone && (
+            <span className="field-error" id={`${formId}-phone-error`}>
+              {errors.phone.message}
+            </span>
+          )}
+        </div>
+        <div className="field field-topic">
+          <label htmlFor={`${formId}-subject`}>Subject</label>
+          <select
+            {...register("subject")}
+            id={`${formId}-subject`}
+            required
+            aria-invalid={Boolean(errors.subject)}
+            aria-describedby={errors.subject ? `${formId}-subject-error` : undefined}
+          >
+            <option value="">Choose a topic</option>
+            <option>Internship opportunity</option>
+            <option>Frontend project</option>
+            <option>Full-stack project</option>
+            <option>Other inquiry</option>
+          </select>
+          {errors.subject && (
+            <span className="field-error" id={`${formId}-subject-error`}>
+              {errors.subject.message}
+            </span>
+          )}
+        </div>
         <div className="field field-message">
           <label htmlFor={`${formId}-message`}>Message</label>
           <textarea

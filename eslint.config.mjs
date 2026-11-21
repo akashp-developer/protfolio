@@ -5,9 +5,5 @@ import nextTypescript from "eslint-config-next/typescript";
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
-  {
-    files: ["src/components/react-bits/logo-loop.tsx"],
-    rules: { "@next/next/no-img-element": "off" },
-  },
   globalIgnores([".next/**", "next-env.d.ts", "test-results/**", "playwright-report/**"]),
 ]);

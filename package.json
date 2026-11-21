@@ -11,11 +11,10 @@
     "test:e2e": "playwright test"
   },
   "dependencies": {
-    "@fontsource-variable/manrope": "5.3.0",
-    "@fontsource-variable/space-grotesk": "5.3.0",
     "@hookform/resolvers": "7.0.8",
     "@upstash/ratelimit": "2.2.1",
     "@upstash/redis": "1.41.0",
+    "geist": "1.9.2",
     "gsap": "3.15.1",
     "lucide-react": "1.77.0",
     "motion": "14.14.0",

@@ -1,7 +1,8 @@
-import type { Metadata } from "next";
+﻿import type { Metadata } from "next";
 import { portfolio } from "@/data/portfolio";
+import { HeroArt } from "@/components/hero-art";
 import { SocialLinks } from "@/components/layout";
-import { BulletList, PageIntro, Section, Tags, Timeline } from "@/components/ui";
+import { PageIntro, Section, Tags, Timeline } from "@/components/ui";
 
 export const metadata: Metadata = {
   title: "About",
@@ -16,30 +17,43 @@ export default function AboutPage() {
     <>
       <PageIntro
         label="About"
-        title={`I’m ${profile?.name ?? "a developer"}.`}
-        description={profile?.summary ?? ""}
+        title="A developer learning across the stack."
+        description={profile?.introduction ?? ""}
       />
-      <Section id="journey" title="My journey">
-        <Timeline items={timeline} />
-      </Section>
-      <Section id="working-principles" title="Working principles">
-        <div className="editorial-grid">
-          {principles.map(({ title, description }) => (
-            <article key={title}>
-              <h3>{title}</h3>
-              <p>{description}</p>
-            </article>
-          ))}
+      <section
+        className="container recorded-about-content"
+        aria-label="About my development work"
+      >
+        <HeroArt />
+        <div className="recorded-about-prose">
+          <div>
+            <h2>Who I am</h2>
+            <p>{profile?.summary}</p>
+          </div>
+          <div>
+            <h2>How I approach development</h2>
+            <ul className="bullet-list">
+              {principles.map(({ title, description }) => (
+                <li key={title}>
+                  <h3>{title}</h3>
+                  <p>{description}</p>
+                </li>
+              ))}
+            </ul>
+          </div>
+          {profile?.focus && (
+            <div>
+              <h2>What I enjoy building</h2>
+              <Tags
+                items={[...(profile.focus.interests ?? []), ...(profile.focus.exploring ?? [])]}
+              />
+            </div>
+          )}
         </div>
+      </section>
+      <Section id="journey" title="The journey so far.">
+        <Timeline items={timeline} expanded />
       </Section>
-      {profile?.focus && (
-        <Section id="interests" title="Technical interests">
-          {profile.focus.goals && <BulletList items={profile.focus.goals} />}
-          <Tags
-            items={[...(profile.focus.interests ?? []), ...(profile.focus.exploring ?? [])]}
-          />
-        </Section>
-      )}
       <Section id="elsewhere" title="Elsewhere">
         <SocialLinks />
       </Section>

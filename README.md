@@ -11,7 +11,7 @@ npm ci
 npm run dev
 ```
 
-The content lives in `src/data/portfolio.ts`. The bundled PDF is a byte-for-byte copy of the supplied résumé. The cover art is an original illustration of each project’s subject. Case studies support approved screenshots and optional source and demo links. The supplied LinkedIn URL opens a general feed. The résumé establishes no employment, certifications, project metrics, or public project links, so those entries are absent from the site.
+The content lives under `src/data`, with separate modules for the profile, projects, skills, education, experience, and social links. The bundled PDF is a byte-for-byte copy of the supplied résumé. The cover art is an original illustration of each project’s subject. Case studies support approved screenshots and optional source and demo links. The supplied LinkedIn URL opens a general feed. The résumé establishes no employment, certifications, project metrics, or public project links, so those entries are absent from the site.
 
 ## Checks
 
@@ -33,6 +33,8 @@ Copy the variable names from `.env.example` into Vercel’s environment settings
 
 ## Design and implementation
 
-The reference informed the homepage sequence, editorial case studies, skill expansions, and separate archive. The project uses custom design tokens, Tailwind utilities, a React Bits LogoLoop ticker, and accessible control patterns. GSAP handles entrance and scroll reveals, while Motion handles navigation, process detail, and form feedback. Anchor navigation uses native browser scrolling and respects reduced-motion preferences.
+The 2:15 reference recording informed the homepage sequence, chapter rail, sticky service index, editorial rows, Geist typography, and mobile menu. The project uses custom design tokens, Tailwind utilities, and a CSS-driven adaptation of the React Bits LogoLoop. GSAP handles entrance and scroll reveals. Motion handles navigation, service numbering, process detail, and form feedback. Anchor navigation uses native browser scrolling and respects reduced-motion preferences.
 
 The upstream React Bits license is included beside the component in `src/components/react-bits`.
+
+See [REFERENCE_ANALYSIS.md](REFERENCE_ANALYSIS.md) for frame timings and measured reference styles and [VISUAL_QA.md](VISUAL_QA.md) for comparison notes and verification.

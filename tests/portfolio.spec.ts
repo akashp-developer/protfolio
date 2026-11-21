@@ -64,20 +64,36 @@ test("archive, skills, services, timeline and process controls work", async ({ p
   await page.getByRole("link", { name: "Case study", exact: true }).click();
   await expect(page).toHaveURL("/projects/tax-compliance");
 
+  await page.goto("/works");
+  await page.getByRole("button", { name: "Operations", exact: true }).click();
+  await expect(page.locator(".works-row")).toHaveCount(1);
+  await expect(page.locator(".works-row")).toContainText("Smart Ambulance Allocation");
+
   await page.goto("/skills");
   await page.getByRole("button", { name: "Databases", exact: true }).click();
   await page.locator("summary").filter({ hasText: "Data storage" }).click();
   await expect(page.getByText("SQLite", { exact: true })).toBeVisible();
 
   await page.goto("/services");
-  await page.locator("summary").filter({ hasText: "Frontend development" }).click();
   await expect(page.getByText("Mobile-first layouts")).toBeVisible();
+  await page.goto("/");
+  await page.locator("#service-1 summary").click();
+  await expect(
+    page.locator("#service-1").getByText("Tailwind CSS", { exact: true }),
+  ).toBeVisible();
 
   await page.goto("/experience");
   await page.locator("summary").filter({ hasText: "B.Tech in Information Technology" }).click();
   await expect(page.getByText("CGPA 7.8 / 10")).toBeVisible();
 
   await page.goto("/");
+  const rail = page.getByRole("navigation", { name: "Homepage chapters" });
+  await rail.getByRole("link", { name: "Process", exact: true }).click();
+  await expect(page).toHaveURL(/#process$/);
+  await expect(rail.getByRole("link", { name: "Process", exact: true })).toHaveAttribute(
+    "aria-current",
+    "location",
+  );
   await page.getByRole("button", { name: "Integrate", exact: true }).click();
   await expect(page.locator("#process-description")).toContainText("representative data");
   const pause = page.getByRole("button", { name: "Pause Project technologies" });
@@ -148,7 +164,7 @@ test("contact validates in the browser and handles success and error responses",
   const fill = async () => {
     await page.getByLabel("Name", { exact: true }).fill("Test Sender");
     await page.getByLabel("Email address").fill("sender@example.test");
-    await page.getByLabel("Subject").fill("Test inquiry");
+    await page.getByLabel("Subject").selectOption("Other inquiry");
     await page
       .getByLabel("Message", { exact: true })
       .fill("This message is intercepted by the test runner.");

@@ -22,9 +22,7 @@ export function Ticker({
           logos={items.map((item) => ({ node: <span className="ticker-item">{item}</span> }))}
           ariaLabel={label}
           direction={reverse ? "right" : "left"}
-          speed={paused ? 0 : 28}
-          gap={36}
-          logoHeight={23}
+          paused={paused}
           pauseOnHover
         />
       </div>

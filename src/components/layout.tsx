@@ -15,7 +15,11 @@ export function Header() {
   return (
     <header className="site-header">
       <div className="container header-inner">
-        <Link className="brand" href="/">
+        <Link
+          className="brand"
+          href="/"
+          aria-label={`${portfolio.profile?.name ?? "Portfolio"} home`}
+        >
           <Mark />
           <span>{portfolio.profile?.name ?? "Developer Portfolio"}</span>
         </Link>
@@ -47,14 +51,17 @@ export function SocialLinks() {
 export function Footer() {
   const profile = portfolio.profile;
   return (
-    <footer className="site-footer" aria-label="Footer">
+    <footer id="footer" className="site-footer" aria-label="Footer">
       <div className="container">
         <div className="footer-grid">
-          <Link className="brand" href="/">
-            <Mark />
-            <span>{profile?.name ?? "Developer Portfolio"}</span>
-          </Link>
+          <div className="footer-invite">
+            <p className="eyebrow">Let’s talk</p>
+            {profile?.email && <a href={`mailto:${profile.email}`}>{profile.email}</a>}
+            <p>{profile?.availability}.</p>
+          </div>
           <nav aria-label="Footer navigation">
+            <p className="eyebrow">Navigate</p>
+            <Link href="/">Home</Link>
             {[...navigation, { href: "/projects", label: "Project archive" }].map(
               ({ href, label }) => (
                 <Link key={href} href={href}>
@@ -64,6 +71,7 @@ export function Footer() {
             )}
           </nav>
           <div className="footer-links">
+            <p className="eyebrow">Elsewhere</p>
             {profile?.socials.map(({ href, label }) => (
               <a key={href} href={href}>
                 {label}
@@ -74,8 +82,18 @@ export function Footer() {
                 <Download size={16} /> Résumé PDF
               </a>
             )}
+            <p>{profile?.location}</p>
           </div>
         </div>
+        <a
+          className="footer-wordmark"
+          href="#top"
+          aria-label={`${profile?.name ?? "Portfolio"}, back to top`}
+        >
+          {(profile?.name ?? "Developer Portfolio").split(" ").map((word) => (
+            <span key={word}>{word}</span>
+          ))}
+        </a>
         <div className="footer-end">
           <span>
             © {new Date().getUTCFullYear()} {profile?.name}

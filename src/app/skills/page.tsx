@@ -14,10 +14,11 @@ export default function SkillsPage() {
     <>
       <PageIntro
         label="Skills"
-        title="Technical toolkit."
+        title="A map of what I can build."
+        accent="build"
         description="Languages, frameworks, and tools I use for coursework and web prototypes."
       />
-      <section className="container page-body" aria-label="Technical skills">
+      <section className="container page-body recorded-skills" aria-label="Technical skills">
         <SkillExplorer skills={portfolio.skills} />
         <div className="page-next">
           <TextLink href="/works">See the tools in use</TextLink>

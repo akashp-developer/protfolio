@@ -53,7 +53,7 @@ export async function POST(request: Request) {
 
   const result = contactSchema.safeParse(payload);
   if (!result.success) return respond("Check the form fields and try again.", 400);
-  const { name, email, subject, message, website } = result.data;
+  const { name, email, phone, subject, message, website } = result.data;
   if (website) return respond("Message received.", 200);
 
   const config = contactConfig();
@@ -92,7 +92,7 @@ export async function POST(request: Request) {
       to: config.to,
       replyTo: email,
       subject: `Portfolio inquiry: ${subject}`,
-      text: `From: ${name} <${email}>\n\n${message}`,
+      text: `From: ${name} <${email}>${phone ? `\nPhone: ${phone}` : ""}\n\n${message}`,
     });
     if (error) return respond(retryMessage, 502);
   } catch {

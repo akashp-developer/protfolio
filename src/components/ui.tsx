@@ -1,26 +1,50 @@
 import type { ReactNode } from "react";
 import Link from "next/link";
 import { ArrowUpRight, Plus } from "lucide-react";
-import type { Skill, Service, TimelineItem } from "@/data/portfolio";
+import type { Skill, TimelineItem } from "@/data/portfolio";
 
 export function PageIntro({
   label,
   title,
   description,
+  accent,
 }: {
   label: string;
   title: string;
   description: string;
+  accent?: string;
 }) {
+  const accentAt = accent ? title.lastIndexOf(accent) : -1;
+  const routeClass = label
+    .normalize("NFD")
+    .toLowerCase()
+    .replace(/[^a-z-]/g, "");
   return (
-    <div className="container page-intro">
+    <div className={`container page-intro page-intro-${routeClass}`}>
+      <nav className="breadcrumbs" aria-label="Breadcrumb">
+        <Link href="/">Home</Link>
+        <span aria-hidden="true">/</span>
+        <span aria-current="page">{label}</span>
+      </nav>
       <p className="eyebrow" data-enter>
         {label}
       </p>
-      <h1 data-enter>{title}</h1>
-      <p className="lede" data-enter>
-        {description}
-      </p>
+      <h1 data-enter>
+        {accent && accentAt >= 0 ? (
+          <>
+            {title.slice(0, accentAt)}
+            <em>{accent}</em>
+            {title.slice(accentAt + accent.length)}
+          </>
+        ) : (
+          title
+        )}
+      </h1>
+      {description && (
+        <p className="lede" data-enter>
+          {description}
+        </p>
+      )}
     </div>
   );
 }
@@ -30,14 +54,23 @@ export function Section({
   title,
   side,
   children,
+  label,
+  variant,
 }: {
   id: string;
   title: string;
   side?: ReactNode;
   children: ReactNode;
+  label?: string;
+  variant?: string;
 }) {
   return (
-    <section id={id} className="section container" aria-labelledby={`${id}-heading`}>
+    <section
+      id={id}
+      className={`section container ${variant ?? ""}`}
+      aria-labelledby={`${id}-heading`}
+    >
+      {label && <p className="section-kicker eyebrow">{label}</p>}
       <div className="section-heading" data-reveal>
         <h2 id={`${id}-heading`}>{title}</h2>
         {side}
@@ -74,39 +107,6 @@ export function BulletList({ items }: { items: string[] }) {
         <li key={item}>{item}</li>
       ))}
     </ul>
-  );
-}
-
-export function ServiceCards({ services }: { services: Service[] }) {
-  return (
-    <div className="service-grid">
-      {services.map((service) => (
-        <details className="disclosure service-card" key={service.title}>
-          <summary>
-            <span>
-              <span className="disclosure-title">{service.title}</span>
-              <span className="disclosure-description">{service.description}</span>
-            </span>
-            <Plus size={19} aria-hidden="true" className="disclosure-icon" />
-          </summary>
-          <div className="disclosure-body">
-            <h3>Capabilities</h3>
-            <BulletList items={service.capabilities} />
-            <h3>Responsibilities</h3>
-            <BulletList items={service.responsibilities} />
-            <h3>Problems addressed</h3>
-            <BulletList items={service.problems} />
-            {service.approach && (
-              <>
-                <h3>Approach</h3>
-                <p>{service.approach}</p>
-              </>
-            )}
-            <Tags items={service.technologies} />
-          </div>
-        </details>
-      ))}
-    </div>
   );
 }
 

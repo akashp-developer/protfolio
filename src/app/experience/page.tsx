@@ -14,9 +14,13 @@ export default function ExperiencePage() {
       <PageIntro
         label="Experience"
         title="Education & experience."
+        accent="experience"
         description="My B.Tech studies and the practical work I build alongside them."
       />
-      <section className="container page-body" aria-label="Education and career timeline">
+      <section
+        className="container page-body recorded-experience"
+        aria-label="Education and career timeline"
+      >
         <Timeline items={portfolio.timeline} />
         <div className="page-next">
           <TextLink href="/works">See my project experience</TextLink>
