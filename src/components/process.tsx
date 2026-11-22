@@ -44,7 +44,7 @@ export function Process() {
 export function PrintButton() {
   return (
     <button className="button button-outline" type="button" onClick={() => window.print()}>
-      Print résumé summary
+      Print resume summary
     </button>
   );
 }

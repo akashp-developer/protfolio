@@ -16,7 +16,6 @@ export default defineConfig({
     env: {
       RESEND_API_KEY: "re_for-browser-tests-only",
       CONTACT_FROM: "Portfolio <from@example.test>",
-      CONTACT_TO: "to@example.test",
       UPSTASH_REDIS_REST_URL: "http://127.0.0.1:1",
       UPSTASH_REDIS_REST_TOKEN: "browser-tests-only",
     },

@@ -101,7 +101,7 @@ export const navigation: LinkItem[] = [
   { label: "Works", href: "/works" },
   { label: "Experience", href: "/experience" },
   { label: "About", href: "/about" },
-  { label: "Résumé", href: "/resume" },
+  { label: "Resume", href: "/resume" },
   { label: "Contact", href: "/contact" },
 ];
 

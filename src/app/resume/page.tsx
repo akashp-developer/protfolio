@@ -6,8 +6,8 @@ import { PrintButton } from "@/components/process";
 import { PageIntro, Tags, Timeline } from "@/components/ui";
 
 export const metadata: Metadata = {
-  title: "Résumé",
-  description: "View or download Akash P’s résumé.",
+  title: "Resume",
+  description: "View or download Akash P’s resume.",
   alternates: { canonical: "/resume" },
 };
 
@@ -15,7 +15,7 @@ export default function ResumePage() {
   const { profile, timeline, skills, projects } = portfolio;
   return (
     <>
-      <PageIntro label="Résumé" title="The digital résumé." description="" />
+      <PageIntro label="Resume" title="The digital resume." description="" />
       <div className="container page-body resume-page">
         <div className="button-row resume-actions">
           {profile?.resume && (
@@ -72,7 +72,7 @@ export default function ResumePage() {
             <summary>Preview the original PDF</summary>
             <iframe
               className="resume-viewer"
-              title={`${profile.name} résumé PDF`}
+              title={`${profile.name} resume PDF`}
               src={profile.resume}
               loading="lazy"
             />

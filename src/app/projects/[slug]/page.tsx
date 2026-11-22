@@ -60,7 +60,7 @@ export default async function CaseStudy({ params }: Props) {
               sizes="(min-width: 1180px) 1140px, 94vw"
               preload
             />
-            <figcaption>Editorial illustration</figcaption>
+            <figcaption>Concept mockup</figcaption>
           </figure>
         )}
         <div className="case-content">

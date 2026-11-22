@@ -10,13 +10,13 @@ export const profile: Profile = {
   summary:
     "I’m a B.Tech Information Technology student at Excel Engineering College. I build responsive interfaces and full-stack prototypes, from a mobile-first digital gold concept to emergency dispatch and compliance dashboards.",
   location: "Hosur, Tamil Nadu",
-  availability: "Seeking a full-stack internship",
+  availability: "Open to full-stack development internships",
   email: "akashparamesh21@gmail.com",
   resume: "/resume/akash-p-resume.pdf",
   socials,
   facts: [
     { value: "03", label: "Featured prototypes" },
-    { value: "2028", label: "Expected graduation" },
+    { value: "2028", label: "Graduation year" },
     { value: "7.8 / 10", label: "CGPA" },
   ],
   focus: {

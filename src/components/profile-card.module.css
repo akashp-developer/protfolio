@@ -1,0 +1,104 @@
+.entrance,
+.pointerArea,
+.card {
+  display: grid;
+  min-width: 0;
+}
+
+.card {
+  position: relative;
+  padding: 1px;
+  border-radius: 16px;
+  background: linear-gradient(145deg, #867a9b, #3b3549 42%, #524766 68%, #b37464);
+  box-shadow: 0 1.2rem 3.2rem #0009;
+}
+
+.surface {
+  position: relative;
+  align-self: stretch;
+  width: 100%;
+  min-width: 0;
+  aspect-ratio: 3 / 2;
+  isolation: isolate;
+  overflow: hidden;
+  border-radius: 15px;
+  background: #2b2835;
+}
+
+.portrait {
+  object-fit: cover;
+  object-position: 30% center;
+}
+
+.surface::before,
+.surface::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+}
+
+.surface::before {
+  background:
+    repeating-linear-gradient(128deg, transparent 0 5px, #cbc9f219 6px, transparent 7px 12px),
+    linear-gradient(132deg, #7557a757 3%, #6ca9bd18 35%, transparent 60%, #ff896a4a);
+  mix-blend-mode: screen;
+}
+
+.caption {
+  position: absolute;
+  inset: auto 1px 1px;
+  z-index: 1;
+  display: grid;
+  gap: 0.25rem;
+  padding: 3.7rem 1rem 0.9rem;
+  color: #fff9f3;
+  border-radius: 0 0 15px 15px;
+  background: linear-gradient(transparent, #15121de8 85%);
+}
+
+.name {
+  font-size: clamp(1.25rem, 2.5vw, 1.7rem);
+  font-weight: 650;
+  letter-spacing: -0.035em;
+  line-height: 1.1;
+}
+
+.role {
+  color: #f0d9d6;
+  font: 0.72rem/1.5 var(--mono);
+  letter-spacing: 0.09em;
+  text-transform: uppercase;
+}
+
+@media (hover: hover) and (pointer: fine) and (prefers-reduced-motion: no-preference) {
+  .card,
+  .portrait {
+    transition: transform 230ms ease-out;
+  }
+
+  .pointerArea:hover .card {
+    transform: perspective(62rem) rotateX(var(--tilt-x, 0deg)) rotateY(var(--tilt-y, 0deg));
+    transition-duration: 90ms;
+  }
+
+  .pointerArea:hover .portrait {
+    transform: translate(var(--portrait-x, 0px), var(--portrait-y, 0px)) scale(1.1);
+  }
+
+  .surface::after {
+    background: radial-gradient(
+      ellipse at var(--glare-x, 50%) var(--glare-y, 50%),
+      #fff5eb66,
+      #9684ff36 25%,
+      transparent 63%
+    );
+    mix-blend-mode: screen;
+    opacity: 0;
+    transition: opacity 200ms ease-out;
+  }
+
+  .pointerArea:hover .surface::after {
+    opacity: 0.65;
+  }
+}

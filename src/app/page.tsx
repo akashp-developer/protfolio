@@ -1,8 +1,8 @@
 ﻿import Link from "next/link";
 import { ArrowRight, Download } from "lucide-react";
 import { portfolio } from "@/data/portfolio";
-import { ChapterRail } from "@/components/chapter-rail";
 import { Process } from "@/components/process";
+import ProfileCard from "@/components/profile-card";
 import { ServiceJourney } from "@/components/service-journey";
 import { Ticker } from "@/components/ticker";
 import { BulletList, Section, SkillCards, Tags, TextLink } from "@/components/ui";
@@ -36,43 +36,47 @@ export default function Home() {
           dangerouslySetInnerHTML={{ __html: JSON.stringify(person).replace(/</g, "\\u003c") }}
         />
       )}
-      <ChapterRail />
       <section id="intro" className="recorded-hero" aria-labelledby="hero-title">
         <div className="container hero-inner">
-          <div className="hero-meta" data-enter>
-            {profile?.availability && (
-              <p className="availability">
-                <span aria-hidden="true" />
-                {profile.availability}
+          {profile?.location && (
+            <p className="hero-location" data-enter>
+              {profile.location}
+            </p>
+          )}
+          <div className="hero-feature">
+            <div className="hero-content">
+              <h1 id="hero-title" data-enter>
+                {profile?.name ?? "Developer portfolio"}
+              </h1>
+              {profile?.title && (
+                <p className="hero-title" data-enter>
+                  {profile.title}
+                </p>
+              )}
+              <p className="lede" data-enter>
+                {profile?.introduction}
               </p>
-            )}
-            {profile?.location && <p className="location">{profile.location}</p>}
-          </div>
-          <div className="hero-content">
-            <h1 id="hero-title" data-enter>
-              {profile?.name ?? "Developer portfolio"}
-            </h1>
-            {profile?.title && (
-              <p className="hero-title" data-enter>
-                {profile.title}
-              </p>
-            )}
-            <div className="hero-bottom" data-enter>
-              <p className="lede">{profile?.introduction}</p>
-              <div className="button-row">
-                <Link className="button button-primary" href="#work">
-                  View my work <ArrowRight size={18} aria-hidden="true" />
+              <div className="button-row hero-actions" data-enter>
+                <Link className="button button-primary" href="/projects">
+                  My Projects <ArrowRight size={18} aria-hidden="true" />
                 </Link>
                 <Link className="button button-outline" href="/contact">
                   Contact me
                 </Link>
                 {profile?.resume && (
                   <a className="button button-quiet" href={profile.resume} download>
-                    Résumé
+                    Resume
                   </a>
                 )}
               </div>
             </div>
+            {profile && (
+              <ProfileCard
+                name={profile.name}
+                title={profile.title}
+                avatarUrl="/images/akash-portrait.png"
+              />
+            )}
           </div>
         </div>
         <Ticker label="Project technologies" items={ticker} />
@@ -243,7 +247,7 @@ export default function Home() {
             )}
             {profile?.resume && (
               <a className="button button-quiet" href={profile.resume} download>
-                Download résumé <Download size={16} aria-hidden="true" />
+                Download resume <Download size={16} aria-hidden="true" />
               </a>
             )}
           </div>

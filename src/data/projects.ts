@@ -11,10 +11,10 @@ export const projects: Project[] = [
     technologies: ["React", "TypeScript", "Tailwind CSS", "React Router", "Context API"],
     featured: true,
     cover: {
-      src: "/images/projects/custom-my-gold.webp",
-      alt: "Editorial illustration of concentric gold coins",
+      src: "/images/projects/custom-my-gold-cover.webp",
+      alt: "Concept mockup of the Custom My Gold savings app beside an engraved gold coin",
       width: 1280,
-      height: 840,
+      height: 853,
     },
     problem:
       "Explore how savings, personalization, and gifting could fit into a single digital gold experience.",
@@ -45,10 +45,10 @@ export const projects: Project[] = [
     technologies: ["HTML", "CSS", "JavaScript", "Flask", "SQLite"],
     featured: true,
     cover: {
-      src: "/images/projects/ambulance-dispatch.webp",
-      alt: "Editorial illustration of dispatch routes on a map",
+      src: "/images/projects/ambulance-dispatch-cover.webp",
+      alt: "Concept mockup of an ambulance dispatch dashboard with a route map and prioritized incidents",
       width: 1280,
-      height: 840,
+      height: 853,
     },
     problem:
       "Dispatchers need to see incident priority and ambulance availability together when deciding how to allocate vehicles.",
@@ -84,10 +84,10 @@ export const projects: Project[] = [
     technologies: ["React", "Node.js", "Express", "MongoDB", "AI APIs"],
     featured: true,
     cover: {
-      src: "/images/projects/tax-compliance.webp",
-      alt: "Editorial illustration of layered compliance documents",
+      src: "/images/projects/tax-compliance-cover.webp",
+      alt: "Concept mockup of a tax law monitoring dashboard with recent updates and a highlighted document preview",
       width: 1280,
-      height: 840,
+      height: 853,
     },
     problem:
       "Explore a more centralized way to monitor tax law changes and surface compliance alerts.",

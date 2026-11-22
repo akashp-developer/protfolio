@@ -87,13 +87,6 @@ test("archive, skills, services, timeline and process controls work", async ({ p
   await expect(page.getByText("CGPA 7.8 / 10")).toBeVisible();
 
   await page.goto("/");
-  const rail = page.getByRole("navigation", { name: "Homepage chapters" });
-  await rail.getByRole("link", { name: "Process", exact: true }).click();
-  await expect(page).toHaveURL(/#process$/);
-  await expect(rail.getByRole("link", { name: "Process", exact: true })).toHaveAttribute(
-    "aria-current",
-    "location",
-  );
   await page.getByRole("button", { name: "Integrate", exact: true }).click();
   await expect(page.locator("#process-description")).toContainText("representative data");
   const pause = page.getByRole("button", { name: "Pause Project technologies" });
@@ -142,12 +135,12 @@ test("mobile navigation, keyboard focus and reduced motion work without overflow
   }
 });
 
-test("résumé PDF is downloadable and embedded", async ({ page, request }) => {
+test("resume PDF is downloadable and embedded", async ({ page, request }) => {
   await page.goto("/resume");
   const downloadPromise = page.waitForEvent("download");
   await page.getByRole("link", { name: "Download PDF" }).click();
   expect((await downloadPromise).suggestedFilename()).toBe("akash-p-resume.pdf");
-  const viewer = page.getByTitle("Akash P résumé PDF");
+  const viewer = page.getByTitle("Akash P resume PDF");
   await expect(viewer).toHaveAttribute("src", "/resume/akash-p-resume.pdf");
   const pdf = await request.get("/resume/akash-p-resume.pdf");
   expect(pdf.headers()["content-type"]).toContain("application/pdf");
