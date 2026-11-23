@@ -102,6 +102,7 @@ export const projects: Project[] = [
       "A full-stack compliance prototype with authentication, a dashboard, AI-assisted tax law monitoring, and alerts.",
     technologies: ["React", "Node.js", "Express", "MongoDB", "AI APIs"],
     featured: true,
+    liveUrl: "/projects/tax-compliance/demo",
     cover: {
       src: "/images/projects/tax-compliance-cover.webp",
       alt: "Concept mockup of a tax law monitoring dashboard with recent updates and a highlighted document preview",
