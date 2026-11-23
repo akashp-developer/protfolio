@@ -10,6 +10,7 @@ export const projects: Project[] = [
       "A mobile-first digital gold concept with savings, personalized coin engraving, and gifting flows.",
     technologies: ["React", "TypeScript", "Tailwind CSS", "React Router", "Context API"],
     featured: true,
+    liveUrl: "https://custom-my-gold.vercel.app/",
     cover: {
       src: "/images/projects/custom-my-gold-cover.webp",
       alt: "Concept mockup of the Custom My Gold savings app beside an engraved gold coin",
