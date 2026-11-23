@@ -27,6 +27,7 @@ export default async function CaseStudy({ params }: Props) {
   const { slug } = await params;
   const project = portfolio.projects.find((item) => item.slug === slug);
   if (!project) notFound();
+  const embeddedDemo = project.embedDemo ? project.liveUrl : undefined;
 
   const sections = [
     { title: "Problem", text: project.problem },
@@ -53,7 +54,14 @@ export default async function CaseStudy({ params }: Props) {
           <TextLink href="/projects">Project archive</TextLink>
           <ProjectLinks project={project} />
         </div>
-        {project.cover && (
+        {embeddedDemo && (
+          <section className="case-demo" aria-labelledby="live-demo-heading">
+            <h2 id="live-demo-heading">Interactive demo</h2>
+            <p>Explore with sample data. Changes stay in your browser.</p>
+            <iframe src={embeddedDemo} title={`${project.title} interactive demo`} />
+          </section>
+        )}
+        {!embeddedDemo && project.cover && (
           <figure className="case-cover">
             <Image
               src={project.cover.src}

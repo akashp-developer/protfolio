@@ -56,6 +56,7 @@ export type Project = {
   cover?: ProjectImage & { caption?: string };
   screenshots?: ProjectImage[];
   liveUrl?: string;
+  embedDemo?: boolean;
   repositoryUrl?: string;
   problem?: string;
   objectives?: string[];

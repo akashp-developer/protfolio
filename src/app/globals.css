@@ -821,8 +821,20 @@ button:disabled {
 .case-body {
   padding-bottom: var(--space-section);
 }
-.case-cover {
+.case-cover,
+.case-demo {
   margin-block: 1rem 1.75rem;
+}
+.case-demo p {
+  margin-bottom: 0.75rem;
+}
+.case-demo iframe {
+  display: block;
+  width: 100%;
+  height: clamp(28rem, 78svh, 48rem);
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: var(--radius);
 }
 .case-cover img {
   width: 100%;
@@ -850,6 +862,7 @@ button:disabled {
   display: grid;
   gap: 1.35rem;
 }
+.case-demo h2,
 .case-sections h2,
 .case-aside h2,
 .resume-summary h2 {
