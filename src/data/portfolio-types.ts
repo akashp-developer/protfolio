@@ -53,7 +53,7 @@ export type Project = {
   summary: string;
   technologies: string[];
   featured?: boolean;
-  cover?: ProjectImage;
+  cover?: ProjectImage & { caption?: string };
   screenshots?: ProjectImage[];
   liveUrl?: string;
   repositoryUrl?: string;

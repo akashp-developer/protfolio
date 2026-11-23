@@ -41,15 +41,31 @@ export const projects: Project[] = [
     category: "Operations",
     status: "Prototype",
     summary:
-      "An emergency-response dashboard prototype for managing incidents, checking ambulance availability, and prioritizing allocation.",
-    technologies: ["HTML", "CSS", "JavaScript", "Flask", "SQLite"],
+      "A dispatch dashboard with an interactive React demo for triaging emergency requests, assigning ambulance units, and reviewing fleet and hospital availability.",
+    technologies: ["React", "Vite", "JavaScript", "CSS", "HTML", "Flask", "SQLite"],
     featured: true,
     cover: {
-      src: "/images/projects/ambulance-dispatch-cover.webp",
-      alt: "Concept mockup of an ambulance dispatch dashboard with a route map and prioritized incidents",
-      width: 1280,
-      height: 853,
+      src: "/images/projects/ambulance-react-dashboard.webp",
+      alt: "Emergency response overview with a dispatch map, an activity chart, and recent requests",
+      width: 1440,
+      height: 960,
+      caption: "React demo dashboard with sample data",
     },
+    screenshots: [
+      {
+        src: "/images/projects/ambulance-react-emergencies.webp",
+        alt: "Emergency requests table with search, priority and status filters, and allocation actions",
+        width: 1440,
+        height: 960,
+      },
+      {
+        src: "/images/projects/ambulance-react-allocation.webp",
+        alt: "Ambulance allocation screen with suggested units, a sample route map, and assignment controls",
+        width: 1440,
+        height: 960,
+      },
+    ],
+    repositoryUrl: "https://github.com/Arul-developerr/smart-ambulance",
     problem:
       "Dispatchers need to see incident priority and ambulance availability together when deciding how to allocate vehicles.",
     objectives: [
@@ -57,16 +73,16 @@ export const projects: Project[] = [
       "Support a priority-based allocation workflow.",
     ],
     contributions: [
-      "Built the emergency incident management prototype.",
-      "Implemented incident prioritization and the dispatcher dashboard.",
+      "Built the original Flask prototype for emergency incident management.",
+      "Implemented incident prioritization and the dispatcher dashboard in the original prototype.",
     ],
     architecture:
-      "An HTML, CSS, and JavaScript interface with Flask on the server and SQLite for data storage.",
+      "The original prototype uses HTML, CSS, and JavaScript with Flask and SQLite. The linked React and Vite demo stores requests and preferences in browser localStorage. It uses illustrative records and a simulated map and runs without live GPS, hospital APIs, or emergency-service integrations.",
     features: [
-      "Incident management",
-      "Ambulance availability",
-      "Incident prioritization",
-      "Dispatcher dashboard",
+      "Create and filter emergency requests by priority or status.",
+      "Assign ambulance units and mark demo cases completed.",
+      "Review sample fleet availability, the hospital directory, and dispatch analytics.",
+      "Zoom and explore an illustrative dispatch map.",
     ],
     challenges: ["Showing incident priority alongside available ambulances."],
     solutions: [
