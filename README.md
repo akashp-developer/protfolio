@@ -15,6 +15,10 @@ The content lives under `src/data`, with separate modules for the profile, proje
 
 To enable the contact form locally, copy `.env.example` to `.env.local`, set `RESEND_API_KEY`, `CONTACT_FROM`, `UPSTASH_REDIS_REST_URL`, and `UPSTASH_REDIS_REST_TOKEN`, then restart the dev server. Submissions go to the profile email in `src/data/profile.ts`. Replies go to the visitor’s address.
 
+## Smart Ambulance demo
+
+The Smart Ambulance demo runs from the portfolio’s static files. To refresh it, build the [React source project](https://github.com/Arul-developerr/smart-ambulance) with `npm run build -- --base /demos/smart-ambulance/` and replace the generated HTML, favicon, and asset directory under `public/demos/smart-ambulance`. The demo uses sample data and stores changes in the current browser.
+
 ## Checks
 
 ```bash

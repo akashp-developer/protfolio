@@ -5,5 +5,11 @@ import nextTypescript from "eslint-config-next/typescript";
 export default defineConfig([
   ...nextVitals,
   ...nextTypescript,
-  globalIgnores([".next/**", "next-env.d.ts", "test-results/**", "playwright-report/**"]),
+  globalIgnores([
+    ".next/**",
+    "next-env.d.ts",
+    "test-results/**",
+    "playwright-report/**",
+    "public/demos/smart-ambulance/assets/**",
+  ]),
 ]);

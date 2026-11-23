@@ -65,6 +65,7 @@ export const projects: Project[] = [
         height: 960,
       },
     ],
+    liveUrl: "/demos/smart-ambulance/index.html",
     repositoryUrl: "https://github.com/Arul-developerr/smart-ambulance",
     problem:
       "Dispatchers need to see incident priority and ambulance availability together when deciding how to allocate vehicles.",

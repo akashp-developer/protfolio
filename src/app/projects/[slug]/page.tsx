@@ -49,7 +49,10 @@ export default async function CaseStudy({ params }: Props) {
         description={project.summary}
       />
       <div className="container case-body">
-        <TextLink href="/projects">Project archive</TextLink>
+        <div className="button-row">
+          <TextLink href="/projects">Project archive</TextLink>
+          <ProjectLinks project={project} />
+        </div>
         {project.cover && (
           <figure className="case-cover">
             <Image
@@ -78,11 +81,6 @@ export default async function CaseStudy({ params }: Props) {
           <aside className="case-aside" aria-label="Project information">
             <h2>Technology stack</h2>
             <Tags items={project.technologies} />
-            {(project.liveUrl || project.repositoryUrl) && (
-              <div className="button-row">
-                <ProjectLinks project={project} />
-              </div>
-            )}
           </aside>
         </div>
         {!!project.screenshots?.length && (

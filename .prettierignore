@@ -3,3 +3,4 @@ package-lock.json
 next-env.d.ts
 test-results
 playwright-report
+public/demos/smart-ambulance/
