@@ -1,6 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight } from "lucide-react";
+import { ArrowUpRight, Download } from "lucide-react";
 import type { Project } from "@/data/portfolio";
 import { Tags } from "./ui";
 
@@ -15,6 +15,11 @@ export function ProjectLinks({ project }: { project: Project }) {
       {project.repositoryUrl && (
         <a className="text-link" href={project.repositoryUrl}>
           Source code <ArrowUpRight size={16} />
+        </a>
+      )}
+      {project.sourceDownload && (
+        <a className="text-link" href={project.sourceDownload} download>
+          Source code <Download size={16} aria-hidden="true" />
         </a>
       )}
     </>

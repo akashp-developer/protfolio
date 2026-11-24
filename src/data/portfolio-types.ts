@@ -58,6 +58,7 @@ export type Project = {
   liveUrl?: string;
   embedDemo?: boolean;
   repositoryUrl?: string;
+  sourceDownload?: `/demos/${string}.zip`;
   problem?: string;
   objectives?: string[];
   contributions?: string[];
