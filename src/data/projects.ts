@@ -104,6 +104,7 @@ export const projects: Project[] = [
     technologies: ["React", "Node.js", "Express", "MongoDB", "AI APIs"],
     featured: true,
     liveUrl: "/projects/tax-compliance/demo",
+    repositoryUrl: "https://github.com/akashp-developer/adaptive-tax-law-monitoring",
     cover: {
       src: "/images/projects/tax-compliance-cover.webp",
       alt: "Concept mockup of a tax law monitoring dashboard with recent updates and a highlighted document preview",
