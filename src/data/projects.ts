@@ -134,4 +134,40 @@ export const projects: Project[] = [
     ],
     relatedSlugs: ["ambulance-dispatch", "custom-my-gold"],
   },
+  {
+    slug: "nexus-studyos",
+    title: "NEXUS StudyOS",
+    category: "Frontend",
+    status: "Prototype",
+    summary:
+      "An academic planning workspace for organizing study sessions, tracking progress, and reviewing course material.",
+    technologies: ["React", "TypeScript", "Vite", "React Router", "Recharts", "Ollama"],
+    featured: true,
+    cover: {
+      src: "/images/projects/nexus-studyos-dashboard.webp",
+      alt: "NEXUS StudyOS dashboard showing sample coursework, study tasks, and progress",
+      width: 1440,
+      height: 960,
+      caption: "StudyOS dashboard with sample academic records",
+    },
+    screenshots: [
+      {
+        src: "/images/projects/nexus-studyos-planner.webp",
+        alt: "NEXUS StudyOS planner with controls for building a weekly study schedule",
+        width: 1440,
+        height: 960,
+      },
+    ],
+    problem:
+      "Students need a way to plan study time around exams and assignments while keeping track of what still needs review.",
+    architecture:
+      "The React and TypeScript app uses React Router for navigation, Recharts for reports, and browser storage for academic records. Its optional study chat uses a local Ollama model through the Vite server; the planning and learning tools run independently in the browser.",
+    features: [
+      "Generate a weekly study plan using deadlines, available hours, and topic mastery.",
+      "Track tasks, focus sessions, and exam readiness.",
+      "Practice with lessons, quizzes, and spaced-repetition reviews.",
+      "Export academic records and explore progress reports.",
+    ],
+    relatedSlugs: ["ambulance-dispatch", "tax-compliance"],
+  },
 ];

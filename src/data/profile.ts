@@ -15,7 +15,7 @@ export const profile: Profile = {
   resume: "/resume/akash-p-resume.pdf",
   socials,
   facts: [
-    { value: "03", label: "Featured prototypes" },
+    { value: "04", label: "Featured prototypes" },
     { value: "2028", label: "Graduation year" },
     { value: "7.8 / 10", label: "CGPA" },
   ],

@@ -15,7 +15,7 @@ export default function WorksPage() {
         label="Works"
         title="Selected work."
         accent="work"
-        description="Three prototypes spanning a mobile-first interface, an operations dashboard, and a full-stack application."
+        description="Featured prototypes in digital gold, emergency dispatch, compliance monitoring, and academic planning."
       />
       <section className="container page-body" aria-label="Featured work">
         <WorksShowcase projects={portfolio.projects.filter((project) => project.featured)} />
