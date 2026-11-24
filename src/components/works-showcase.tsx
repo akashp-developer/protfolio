@@ -40,7 +40,7 @@ export function WorksShowcase({ projects }: { projects: Project[] }) {
               </h2>
               <p>{project.category}</p>
             </div>
-            {project.cover && project.slug !== "custom-my-gold" && (
+            {project.cover && (
               <div className="works-preview" aria-hidden="true">
                 <Image
                   src={project.cover.src}
