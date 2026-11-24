@@ -12,10 +12,11 @@ export const projects: Project[] = [
     featured: true,
     liveUrl: "https://custom-my-gold.vercel.app/",
     cover: {
-      src: "/images/projects/custom-my-gold-cover.webp",
-      alt: "Concept mockup of the Custom My Gold savings app beside an engraved gold coin",
+      src: "/images/projects/custom-my-gold-home-hero.webp",
+      alt: "Tree-engraved gold coin in a green velvet gift box with a gold ribbon",
       width: 1280,
-      height: 853,
+      height: 720,
+      caption: "Hero image from the live Custom My Gold project",
     },
     problem:
       "Explore how savings, personalization, and gifting could fit into a single digital gold experience.",
