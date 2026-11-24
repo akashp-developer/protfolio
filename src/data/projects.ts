@@ -143,6 +143,7 @@ export const projects: Project[] = [
       "An academic planning workspace for organizing study sessions, tracking progress, and reviewing course material.",
     technologies: ["React", "TypeScript", "Vite", "React Router", "Recharts", "Ollama"],
     featured: true,
+    liveUrl: "/demos/nexus-studyos/index.html#/signin",
     cover: {
       src: "/images/projects/nexus-studyos-dashboard.webp",
       alt: "NEXUS StudyOS dashboard showing sample coursework, study tasks, and progress",

@@ -11,5 +11,6 @@ export default defineConfig([
     "test-results/**",
     "playwright-report/**",
     "public/demos/smart-ambulance/assets/**",
+    "public/demos/nexus-studyos/assets/**",
   ]),
 ]);
